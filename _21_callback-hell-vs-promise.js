@@ -10,6 +10,7 @@ function fetchComments(postId, callback) {
   setTimeout(() => callback(null, ["Comment A", "Comment B"]), 500);
 }
 
+// Example of callback hell — deeply nested callbacks
 // Nested, indented, hard to follow — the "pyramid of doom"
 fetchUser(1, (err, user) => {
   if (err) return console.error(err);
