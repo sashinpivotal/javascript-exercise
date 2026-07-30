@@ -1,3 +1,7 @@
+// A JSON string is literally just a string of characters 
+// formatted according to JSON syntax rules. 
+// It's not a JavaScript object — it's plain text that 
+// happens to look like one.
 const jsonString = '{"name": "Alice", "age": 30}';
 const obj = JSON.parse(jsonString);
 
@@ -5,7 +9,6 @@ console.log(obj);       // { name: 'Alice', age: 30 }
 console.log(obj.name);  // "Alice"
 console.log(obj.age);   // 30
 
-// Parsing nested objects
 const jsonString2 = `{
   "user": {
     "name": "Bob",

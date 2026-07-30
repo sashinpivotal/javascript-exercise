@@ -4,6 +4,7 @@ function sayHello(name) {
     console.log(name)
     anotherGlobalVariable = name;
 }
+
 globalNameVariable = "Nick"
 sayHello(globalNameVariable)
 console.log(anotherGlobalVariable)
