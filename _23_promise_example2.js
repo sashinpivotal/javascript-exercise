@@ -21,9 +21,9 @@ myPromise
   });
 
 // Consuming a promise with async/await
-// await can only be used inside a function marked async. 
-// It pauses execution until a Promise settles, then gives 
-// you the resolved value directly (instead of needing .then()):
+// - await can only be used inside a function marked async. 
+// - It pauses execution until a Promise settles, then gives 
+//   you the resolved value directly (instead of needing .then()):
 async function run() {
   try {
     const result = await myPromise;

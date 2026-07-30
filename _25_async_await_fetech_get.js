@@ -5,6 +5,9 @@ async function getPost() {
 }
 
 getPost();
+
+// Note that the getPost() function is an async function, 
+// which means it returns a Promise.
 console.log("Type of async function:", typeof getPost); // Output: "function"
 console.log("Type of async function:", getPost()); // Output: "Promise"
 
