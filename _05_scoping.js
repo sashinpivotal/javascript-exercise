@@ -10,6 +10,9 @@ sayHello(globalNameVariable)
 console.log(anotherGlobalVariable)
 
 // Variables declared with var are function scoped
+// - var is discouraged in modern JavaScript mainly because of 
+//   this scoping quirk that could cause subtle bugs. 
+// - let and const (introduced in ES6/2015) fix these problems
 function sayHello(name) {
     for (var i = 0; i < 3; i++) {
         console.log(i)

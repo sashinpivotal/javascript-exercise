@@ -4,20 +4,53 @@
 //   from regular functions: instead of running 
 //   to completion when called, they run incrementally, 
 // pausing at each yield and waiting to be resumed.
-function* generatorFunction() {
-    console.log('this is the first time i have been executed');
-    yield null;
-    console.log('this is the second');
+function* simpleGenerator() {
+  yield 1;
+  yield 2;
+  yield 3;
 }
 
-// - generatorFunction() does not run any of the code inside it. 
-//   It just creates a generator object.
-const generator = generatorFunction();
+const gen = simpleGenerator();
 
-// - Nothing executes until you call .next() on that generator object. 
-// - Each call to .next() runs the code up to the next yield, 
-// then pauses there.
-console.log('activating once');
-generator.next();
-console.log('activating second time');
-generator.next(); 
+console.log(gen.next()); // { value: 1, done: false }
+console.log(gen.next()); // { value: 2, done: false }
+console.log(gen.next()); // { value: 3, done: false }
+console.log(gen.next()); // { value: undefined, done: true }
+
+// Loops through the generator using for...of
+function* colors() {
+  yield 'red';
+  yield 'green';
+  yield 'blue';
+}
+
+for (const color of colors()) {
+  console.log(color);
+}
+
+// Infinite generator example — generates an infinite sequence of IDs
+function* idGenerator() {
+  let id = 1;
+  while (true) {
+    yield id++;
+  }
+}
+
+const ids = idGenerator();
+
+console.log(ids.next().value); // 1
+console.log(ids.next().value); // 2
+console.log(ids.next().value); // 3
+// ...could keep going forever, only computes when asked
+
+// Practical use case: generating unique IDs for objects
+function* range(start, end, step = 1) {
+  for (let i = start; i < end; i += step) {
+    yield i;
+  }
+}
+
+for (const num of range(0, 10, 2)) {
+  console.log(num);
+}
+// 0, 2, 4, 6, 8
